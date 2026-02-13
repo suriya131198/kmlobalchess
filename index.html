@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Chess Classes India | Lobal Chess Academy | Free Trial | Expert Coaching for Kids & Adults</title>
+    <meta name="description" content="Join 1000+ students learning chess online! Expert coaches, personalized lessons, flexible timings. Perfect for kids & adults. Book your FREE trial class now! ♟️">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- Cursor Trail Canvas -->
+    <canvas id="cursor-trail"></canvas>
+
+    <!-- Floating Chess Pieces Background -->
+    <div id="floating-pieces" aria-hidden="true"></div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-icon">♔</span>
+                <span class="logo-text">LOBAL <span class="logo-accent">CHESS</span></span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#why-us" class="nav-link">Why Us</a></li>
+                <li><a href="#team" class="nav-link">Our Team</a></li>
+                <li><a href="#courses" class="nav-link">Courses</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+                <li><a href="#trial" class="nav-link nav-cta">Book a Free Trial</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="home">
+        <div class="hero-chessboard" aria-hidden="true"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge">♟ India's Premier Online Chess Academy</div>
+            <h1 class="hero-title">
+                Ace Your Child's<br>
+                <span class="hero-highlight">Intelligence</span> With Lobal
+            </h1>
+            <p class="hero-subtitle">
+                Learn from International Masters and FIDE-rated coaches — anytime, anywhere at affordable price. Perfect for kids and adults of all skill levels.
+            </p>
+            <div class="hero-actions">
+                <a href="#trial" class="btn btn-primary">
+                    <span class="btn-icon">♛</span> Book Free Trial
+                </a>
+                <a href="#courses" class="btn btn-outline">
+                    Explore Courses
+                </a>
+            </div>
+            <div class="hero-stats-mini">
+                <div class="mini-stat"><strong>150+</strong> Students</div>
+                <div class="mini-stat-divider">|</div>
+                <div class="mini-stat"><strong>4+</strong> Years Experience</div>
+                <div class="mini-stat-divider">|</div>
+                <div class="mini-stat"><strong>FIDE</strong> Rated Coaches</div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-chess-piece">♙</div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- ===== CHECKERBOARD DIVIDER ===== -->
+    <div class="chess-divider" aria-hidden="true">
+        <div class="divider-row">
+            <span class="sq light"></span><span class="sq dark"></span><span class="sq light"></span><span class="sq dark"></span><span class="sq light"></span><span class="sq dark"></span><span class="sq light"></span><span class="sq dark"></span>
+            <span class="sq light"></span><span class="sq dark"></span><span class="sq light"></span><span class="sq dark"></span><span class="sq light"></span><span class="sq dark"></span><span class="sq light"></span><span class="sq dark"></span>
+            <span class="sq light"></span><span class="sq dark"></span><span class="sq light"></span><span class="sq dark"></span><span class="sq light"></span><span class="sq dark"></span><span class="sq light"></span><span class="sq dark"></span>
+            <span class="sq light"></span><span class="sq dark"></span><span class="sq light"></span><span class="sq dark"></span><span class="sq light"></span><span class="sq dark"></span><span class="sq light"></span><span class="sq dark"></span>
+        </div>
+    </div>
+
+    <!-- ===== FREE TRIAL SECTION ===== -->
+    <section class="trial-section" id="trial">
+        <div class="container">
+            <div class="trial-wrapper">
+                <div class="trial-info reveal">
+                    <h2 class="section-title">Get Your <span class="accent">Free Trial</span> Lesson</h2>
+                    <p class="trial-desc">Join hundreds of students improving their game. Experience our world-class coaching firsthand — no credit card required.</p>
+                    <div class="trial-features">
+                        <div class="trial-feature">
+                            <span class="feature-icon">♖</span>
+                            <span>Personalized assessment of your skill level</span>
+                        </div>
+                        <div class="trial-feature">
+                            <span class="feature-icon">♗</span>
+                            <span>Interactive 1-on-1 session with a coach</span>
+                        </div>
+                        <div class="trial-feature">
+                            <span class="feature-icon">♘</span>
+                            <span>Custom learning roadmap for your goals</span>
+                        </div>
+                    </div>
+                    <p class="trial-privacy">🔒 We respect your privacy. No spam, just chess updates.</p>
+                </div>
+                <div class="trial-form-card reveal reveal-delay-1">
+                    <div class="form-chess-corner top-left" aria-hidden="true">♜</div>
+                    <div class="form-chess-corner top-right" aria-hidden="true">♜</div>
+                    <h3 class="form-title">Start Your Chess Journey</h3>
+                    <form id="trialForm" class="trial-form" novalidate>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                            <span class="form-error" id="nameError">Please enter your name</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" required>
+                            <span class="form-error" id="phoneError">Please enter a valid phone number</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                            <span class="form-error" id="emailError">Please enter a valid email</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="level">Current Level</label>
+                            <select id="level" name="level">
+                                <option value="beginner">♙ Beginner</option>
+                                <option value="intermediate">♘ Intermediate</option>
+                                <option value="advanced">♛ Advanced</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <span class="btn-icon">♚</span> Book My Free Trial
+                        </button>
+                    </form>
+                    <div class="form-chess-corner bottom-left" aria-hidden="true">♜</div>
+                    <div class="form-chess-corner bottom-right" aria-hidden="true">♜</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHY US SECTION ===== -->
+    <section class="why-us" id="why-us">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge">♔ Our Strengths</span>
+                <h2 class="section-title">Why Choose <span class="accent">Lobal Chess</span>?</h2>
+                <p class="section-subtitle">Personalized coaching, expert mentors, and an unmatched learning experience to help you achieve your chess goals.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card reveal" data-tilt>
+                    <div class="stat-icon">♖</div>
+                    <div class="stat-number" data-target="4">0</div>
+                    <div class="stat-suffix">+ Years</div>
+                    <div class="stat-label">Minimum coaching experience for each coach</div>
+                </div>
+                <div class="stat-card reveal reveal-delay-1" data-tilt>
+                    <div class="stat-icon">♗</div>
+                    <div class="stat-number" data-target="10">0</div>
+                    <div class="stat-suffix">+ Years</div>
+                    <div class="stat-label">Minimum playing experience for each coach</div>
+                </div>
+                <div class="stat-card reveal reveal-delay-2" data-tilt>
+                    <div class="stat-icon">♕</div>
+                    <div class="stat-number" data-target="150">0</div>
+                    <div class="stat-suffix">+ Students</div>
+                    <div class="stat-label">Successfully Trained</div>
+                </div>
+                <div class="stat-card reveal reveal-delay-3" data-tilt>
+                    <div class="stat-icon">♘</div>
+                    <div class="stat-number" data-target="100">0</div>
+                    <div class="stat-suffix">%</div>
+                    <div class="stat-label">State & National achieved coaches</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CHECKERBOARD DIVIDER ===== -->
+    <div class="chess-divider" aria-hidden="true">
+        <div class="divider-row">
+            <span class="sq dark"></span><span class="sq light"></span><span class="sq dark"></span><span class="sq light"></span><span class="sq dark"></span><span class="sq light"></span><span class="sq dark"></span><span class="sq light"></span>
+            <span class="sq dark"></span><span class="sq light"></span><span class="sq dark"></span><span class="sq light"></span><span class="sq dark"></span><span class="sq light"></span><span class="sq dark"></span><span class="sq light"></span>
+            <span class="sq dark"></span><span class="sq light"></span><span class="sq dark"></span><span class="sq light"></span><span class="sq dark"></span><span class="sq light"></span><span class="sq dark"></span><span class="sq light"></span>
+            <span class="sq dark"></span><span class="sq light"></span><span class="sq dark"></span><span class="sq light"></span><span class="sq dark"></span><span class="sq light"></span><span class="sq dark"></span><span class="sq light"></span>
+        </div>
+    </div>
+
+    <!-- ===== TEAM SECTION ===== -->
+    <section class="team" id="team">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge">♚ Expert Coaches</span>
+                <h2 class="section-title">Meet Our <span class="accent">Team</span></h2>
+                <p class="section-subtitle">Learn from coaches who don't just teach chess — they live it.</p>
+            </div>
+            <div class="team-category reveal">
+                <h3 class="team-category-title">Head Coaches</h3>
+                <div class="team-grid">
+                    <div class="team-card" data-tilt>
+                        <div class="team-card-inner">
+                            <div class="team-card-front">
+                                <div class="team-avatar">
+                                    <span class="avatar-piece">♔</span>
+                                </div>
+                                <h4 class="team-name">Kasthoori Mahalingam</h4>
+                                <span class="team-role">Head Coach</span>
+                            </div>
+                            <div class="team-card-back">
+                                <div class="team-back-icon">♔</div>
+                                <h4 class="team-name">Kasthoori Mahalingam</h4>
+                                <span class="team-role">Head Coach</span>
+                                <p class="team-bio">Experienced chess coach with years of competitive play and coaching excellence. Specialized in developing young talent.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card" data-tilt>
+                        <div class="team-card-inner">
+                            <div class="team-card-front">
+                                <div class="team-avatar">
+                                    <span class="avatar-piece">♔</span>
+                                </div>
+                                <h4 class="team-name">Rohit Vassan</h4>
+                                <span class="team-role">Head Coach</span>
+                            </div>
+                            <div class="team-card-back">
+                                <div class="team-back-icon">♔</div>
+                                <h4 class="team-name">Rohit Vassan</h4>
+                                <span class="team-role">Head Coach</span>
+                                <p class="team-bio">Strategic thinker and passionate chess educator. Dedicated to building strong fundamentals in every student.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="team-category reveal reveal-delay-1">
+                <h3 class="team-category-title">Master Classes From</h3>
+                <div class="team-grid">
+                    <div class="team-card team-card-master" data-tilt>
+                        <div class="team-card-inner">
+                            <div class="team-card-front">
+                                <div class="team-avatar master-avatar">
+                                    <span class="avatar-piece">♛</span>
+                                </div>
+                                <h4 class="team-name">IM Muthaiah</h4>
+                                <span class="team-role">Guest Coach — International Master</span>
+                                <span class="team-badge">IM</span>
+                            </div>
+                            <div class="team-card-back">
+                                <div class="team-back-icon">♛</div>
+                                <h4 class="team-name">IM Muthaiah</h4>
+                                <span class="team-role">International Master</span>
+                                <p class="team-bio">FIDE-titled International Master bringing world-class insights and advanced strategies through exclusive masterclass sessions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-card team-card-master" data-tilt>
+                        <div class="team-card-inner">
+                            <div class="team-card-front">
+                                <div class="team-avatar master-avatar">
+                                    <span class="avatar-piece">♛</span>
+                                </div>
+                                <h4 class="team-name">Barath Kalyan</h4>
+                                <span class="team-role">Candidate Master</span>
+                                <span class="team-badge">CM</span>
+                            </div>
+                            <div class="team-card-back">
+                                <div class="team-back-icon">♛</div>
+                                <h4 class="team-name">Barath Kalyan</h4>
+                                <span class="team-role">Candidate Master</span>
+                                <p class="team-bio">FIDE Candidate Master with competitive tournament experience. Specializes in tactical training and opening preparation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COURSES SECTION ===== -->
+    <section class="courses" id="courses">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge">♞ Programs</span>
+                <h2 class="section-title">Our <span class="accent">Courses</span></h2>
+                <p class="section-subtitle">Explore a variety of courses designed for all skill levels, from beginners to advanced learners.</p>
+            </div>
+
+            <!-- Course Tiers -->
+            <div class="course-tiers reveal">
+                <div class="course-tier-card" data-tilt>
+                    <div class="tier-chess-piece">♙</div>
+                    <div class="tier-level">Beginner</div>
+                    <h3 class="tier-title">Foundation</h3>
+                    <p class="tier-desc">Perfect for those just starting out. Learn the basics and build your confidence on the board.</p>
+                    <ul class="tier-features">
+                        <li>♟ Rules & piece movement</li>
+                        <li>♟ Basic tactics & checkmates</li>
+                        <li>♟ Opening principles</li>
+                        <li>♟ Game analysis fundamentals</li>
+                    </ul>
+                    <a href="#trial" class="btn btn-outline btn-full">Start Learning</a>
+                </div>
+                <div class="course-tier-card tier-popular" data-tilt>
+                    <div class="tier-popular-badge">Most Popular</div>
+                    <div class="tier-chess-piece">♞</div>
+                    <div class="tier-level">Intermediate</div>
+                    <h3 class="tier-title">Competitive</h3>
+                    <p class="tier-desc">For those who already have some skills and want to play competitive chess tournaments.</p>
+                    <ul class="tier-features">
+                        <li>♞ Advanced tactics & combinations</li>
+                        <li>♞ Opening repertoire building</li>
+                        <li>♞ Positional understanding</li>
+                        <li>♞ Tournament preparation</li>
+                    </ul>
+                    <a href="#trial" class="btn btn-primary btn-full">Start Learning</a>
+                </div>
+                <div class="course-tier-card" data-tilt>
+                    <div class="tier-chess-piece">♛</div>
+                    <div class="tier-level">Advanced</div>
+                    <h3 class="tier-title">Mastery</h3>
+                    <p class="tier-desc">For experienced players looking to improve performance in FIDE rated tournaments.</p>
+                    <ul class="tier-features">
+                        <li>♛ Deep strategic concepts</li>
+                        <li>♛ FIDE tournament strategies</li>
+                        <li>♛ Endgame mastery</li>
+                        <li>♛ Psychological preparation</li>
+                    </ul>
+                    <a href="#trial" class="btn btn-outline btn-full">Start Learning</a>
+                </div>
+            </div>
+
+            <!-- Class Formats -->
+            <div class="class-formats reveal">
+                <div class="format-card" data-tilt>
+                    <div class="format-icon">♜♜♜♜♜</div>
+                    <h3 class="format-title">Group Classes</h3>
+                    <div class="format-subtitle">5 Students per batch</div>
+                    <ul class="format-features">
+                        <li>Interactive group sessions</li>
+                        <li>Monthly tournaments</li>
+                        <li>Peer learning environment</li>
+                    </ul>
+                    <div class="format-classes">8 classes/month</div>
+                    <a href="#trial" class="btn btn-outline btn-full">Join Group</a>
+                </div>
+                <div class="format-card" data-tilt>
+                    <div class="format-icon">♚</div>
+                    <h3 class="format-title">1:1 Classes</h3>
+                    <div class="format-subtitle">Personal mentorship</div>
+                    <ul class="format-features">
+                        <li>Personalized training plan</li>
+                        <li>Flexible scheduling</li>
+                        <li>Regular direct feedback from coaches</li>
+                    </ul>
+                    <div class="format-classes">8 classes/month</div>
+                    <a href="#trial" class="btn btn-primary btn-full">Book Private</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ SECTION ===== -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge">♗ Help</span>
+                <h2 class="section-title">Frequently Asked <span class="accent">Questions</span></h2>
+                <p class="section-subtitle">Answers to your most common questions.</p>
+            </div>
+            <div class="faq-list reveal">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-icon">♟</span>
+                        <span>What age group is this suitable for?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our courses are designed for kids aged 5+ and adults of all ages. Whether you're a young beginner or an adult looking to sharpen your skills, we have the right program for you.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-icon">♞</span>
+                        <span>Do I need any prior chess knowledge?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Not at all! Our beginner course starts from the very basics — how pieces move, rules of the game, and elementary tactics. We'll assess your level in the free trial and place you in the right group.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-icon">♖</span>
+                        <span>How are the online classes conducted?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Classes are conducted live via video conferencing with interactive chess boards. Students can see the coach, ask questions in real-time, and practice positions together on a shared board.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-icon">♗</span>
+                        <span>What is the class schedule?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We offer flexible scheduling — morning, afternoon, and evening batches. 1:1 classes have fully flexible timing based on your convenience. Group classes run 8 sessions per month with a fixed weekly schedule.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-icon">♕</span>
+                        <span>Can my child participate in tournaments?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely! We conduct monthly internal tournaments and also guide students to participate in district, state, national, and FIDE-rated tournaments. Our intermediate and advanced courses include dedicated tournament preparation modules.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-icon">♔</span>
+                        <span>What makes Lobal Chess Academy different?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our coaches have a minimum of 4+ years of coaching experience and 10+ years of playing experience. We offer personalized learning paths, small batch sizes (max 5 students), and access to International Master-led masterclasses.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BLOG SECTION ===== -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge">♜ Updates</span>
+                <h2 class="section-title">Latest <span class="accent">Blog</span> Posts</h2>
+                <p class="section-subtitle">Stay updated with our latest news and articles.</p>
+            </div>
+            <div class="blog-coming-soon reveal">
+                <div class="coming-soon-piece">♚</div>
+                <h3>Coming Soon</h3>
+                <p>Something awesome is being prepared. Check back for chess tips, strategies, and academy updates!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" id="contact">
+        <div class="footer-top-border" aria-hidden="true"></div>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon">♔</span>
+                        <span class="logo-text">LOBAL <span class="logo-accent">CHESS</span></span>
+                    </div>
+                    <p class="footer-tagline">Empowering minds, one move at a time. India's premier online chess academy for kids and adults.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                        <a href="#" class="social-link" aria-label="YouTube">▶️</a>
+                        <a href="#" class="social-link" aria-label="WhatsApp">💬</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#why-us">Why Us</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <ul>
+                        <li><a href="tel:+918838309789">📞 +91 88383 09789</a></li>
+                        <li><a href="mailto:info@lobalchessacademy.com">✉️ info@lobalchessacademy.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4 class="footer-heading">Subscribe</h4>
+                    <p>Get chess tips and academy updates.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit" class="btn btn-primary">♛</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Lobal Chess Academy. All rights reserved.</p>
+                <p class="footer-chess-art">♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
